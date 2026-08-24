@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cors.css">
+
+    <script>
+
+        async function somar () {
+
+            let n1 = document.getElementById("num1").value;
+            let n2 = document.getElementById("num2").value;
+
+
+            let url = 'http://localhost:5001/calculadora/somar/' + n1 + '/' + n2;
+
+            let response = await fetch(url);
+
+            let dados = await response.json();
+            document.getElementById('res').innerText = String(dados.soma);
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <h1>Calculadora</h1>
+    <div class="container">
+        <section>
+            <div>
+                <h2>Informe um número</h2>
+                <input type="text" id="num1">
+            </div>
+            <div>
+                <h2>Informe outro número</h2>
+                <input type="text" id="num2">
+            </div>
+            <button onclick="somar()" type="button">Somar</button>
+            
+            <p id="res">0</p>
+            
+        </section>
+    </div>
+
+</body>
+</html>
