@@ -10,16 +10,17 @@
 
         async function somar () {
 
-            let n1 = document.getElementById("num1").value;
-            let n2 = document.getElementById("num2").value;
+            let n1 = document.getElementById("num1").value; // cria a variavel n1 pegando do documento(html) o elemento com id num1 e pegando o valor dele atraves do value
+            let n2 = document.getElementById("num2").value; // cria a variavel n2 pegando do documento(html) o elemento com id num2 e pegando o valor dele atraves do value
 
 
-            let url = 'http://localhost:5001/calculadora/somar/' + n1 + '/' + n2;
+            let url = 'http://localhost:5001/calculadora/somar/' + n1 + '/' + n2; // cria a variavel url usando o a roda da api
 
-            let response = await fetch(url);
+            let response = await fetch(url); // cria a variavel response que vai receber a resposta da api. Fetch é uma função que faz uma requisição para a url e retorna uma promessa. Await é usado para esperar a resposta da promessa antes de continuar a execução do código.
 
-            let dados = await response.json();
-            document.getElementById('res').innerText = String(dados.soma);
+            let dados = await response.json(); // cria a variavel dados que vai receber os dados da resposta da api. A função json() é usada para converter a resposta em um objeto javascript.
+
+            document.getElementById('res').innerText = String(dados.soma); // pega o elemento com id 'res' e altera o texto dele para o valor da soma que veio da api. String() é usado para converter o valor em string.
         }
 
     </script>
